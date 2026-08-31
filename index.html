@@ -321,13 +321,35 @@ header.scrolled{
 }
 .contact h2{font-size:clamp(1.8rem,3.6vw,2.8rem);max-width:760px;margin:0 auto 18px;letter-spacing:-.02em}
 .contact .contact-lead{color:var(--txt-dim);max-width:640px;margin:0 auto 38px}
-.contact-card{
-  max-width:560px;margin:0 auto;text-align:left;
+.contact-grid{
+  display:grid;grid-template-columns:minmax(260px,.9fr) 1.15fr;gap:24px;
+  max-width:1040px;margin:0 auto;text-align:left;align-items:stretch;
+}
+.contact-card,.company-card{
+  margin:0;text-align:left;
   border:1px solid var(--line);border-radius:var(--radius);
   background:var(--panel);padding:36px 32px;
   backdrop-filter:blur(12px);
   box-shadow:0 20px 50px -24px rgba(30,70,180,.45);
 }
+.company-card h3{font-size:1.18rem;margin-bottom:8px}
+.company-card .company-intro{color:var(--txt-dim);font-size:.9rem;margin-bottom:26px;line-height:1.55}
+.company-list{display:flex;flex-direction:column;gap:18px}
+.company-item{display:flex;gap:14px;align-items:flex-start}
+.company-ico{
+  width:42px;height:42px;flex-shrink:0;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line-strong);
+  background:rgba(63,125,255,.12);color:var(--cyan);
+}
+.company-ico svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7}
+.company-item small{
+  display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cyan);margin-bottom:4px;
+}
+.company-item a,.company-item span{color:var(--txt);font-size:.98rem;font-weight:500}
+.company-item a:hover{color:var(--cyan)}
+.company-item p{margin:4px 0 0;color:var(--txt-dim);font-size:.82rem}
 .contact-form{display:grid;gap:16px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .contact-form label{
@@ -366,6 +388,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
   .deliver-line{display:none}
   .about-grid{grid-template-columns:1fr;gap:44px}
   .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .nav{height:110px}
@@ -385,7 +408,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
   .ind-grid{grid-template-columns:1fr}
   .deliver-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .contact-card{padding:28px 20px}
+  .contact-card,.company-card{padding:28px 20px}
   .chip{display:none}
   .sec{padding:80px 0}
   .hero-inner{padding-top:140px}
@@ -649,27 +672,75 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
     <span class="eyebrow" style="justify-content:center;display:inline-flex">Get in Touch</span>
     <h2>Tell us where you want your payments to go. We'll help you get there.</h2>
     <p class="contact-lead">Every successful payments journey starts with the right conversation. Whether you're planning a new cross-border corridor, preparing for certification, modernizing your payment infrastructure, or exploring a new idea, our team is ready to help you define the path forward.</p>
-    <div class="contact-card">
-      <form id="contact-form" class="contact-form" novalidate>
-        <div class="form-row">
-          <label>Name
-            <input type="text" name="name" autocomplete="name" required placeholder="Your full name">
-          </label>
-          <label>Email
-            <input type="email" name="email" autocomplete="email" required placeholder="you@company.com">
-          </label>
+    <div class="contact-grid">
+      <aside class="company-card">
+        <h3>Company details</h3>
+        <p class="company-intro">Badami NextGen Solutions (BNGS). Reach the team directly, or send a note with the form.</p>
+        <div class="company-list">
+          <div class="company-item">
+            <span class="company-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            </span>
+            <div>
+              <small>Email address</small>
+              <a href="mailto:hello@bngs.com">hello@bngs.com</a>
+              <p>General enquiries and new conversations</p>
+            </div>
+          </div>
+          <div class="company-item">
+            <span class="company-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3c0 .8-.5 1.5-1.3 1.6A16.5 16.5 0 014.4 4.8C4.3 4 5 3.5 5.8 3.5H6.5z"/></svg>
+            </span>
+            <div>
+              <small>Phone number</small>
+              <a href="tel:+97140000000">+971 4 000 0000</a>
+              <p>Direct line for new conversations</p>
+            </div>
+          </div>
+          <div class="company-item">
+            <span class="company-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <small>Hours</small>
+              <span>24/7 managed operations</span>
+              <p>Monitoring, support, and go-live coverage</p>
+            </div>
+          </div>
+          <div class="company-item">
+            <span class="company-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4 5.7 4 9s-1.2 6.4-4 9c-2.8-2.6-4-5.7-4-9s1.2-6.4 4-9z"/></svg>
+            </span>
+            <div>
+              <small>Coverage</small>
+              <span>Global payment corridors</span>
+              <p>Banks, governments, fintechs, and enterprises</p>
+            </div>
+          </div>
         </div>
-        <label>Phone number
-          <input type="tel" name="phone" autocomplete="tel" placeholder="+1 000 000 0000">
-        </label>
-        <label>Notes
-          <textarea name="notes" rows="5" placeholder="Tell us about your payments initiative..."></textarea>
-        </label>
-        <button type="submit" class="btn btn-primary">Send message
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <p class="form-status" id="form-status" hidden></p>
-      </form>
+      </aside>
+      <div class="contact-card">
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <label>Name
+              <input type="text" name="name" autocomplete="name" required placeholder="Your full name">
+            </label>
+            <label>Email
+              <input type="email" name="email" autocomplete="email" required placeholder="you@company.com">
+            </label>
+          </div>
+          <label>Phone number
+            <input type="tel" name="phone" autocomplete="tel" placeholder="+1 000 000 0000">
+          </label>
+          <label>Notes
+            <textarea name="notes" rows="5" placeholder="Tell us about your payments initiative..."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send message
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-status" id="form-status" hidden></p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
