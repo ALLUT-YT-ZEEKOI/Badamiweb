@@ -322,19 +322,20 @@ header.scrolled{
 .contact h2{font-size:clamp(1.8rem,3.6vw,2.8rem);max-width:760px;margin:0 auto 18px;letter-spacing:-.02em}
 .contact .contact-lead{color:var(--txt-dim);max-width:640px;margin:0 auto 38px}
 .contact-grid{
-  display:grid;grid-template-columns:minmax(260px,.9fr) 1.15fr;gap:24px;
-  max-width:1040px;margin:0 auto;text-align:left;align-items:stretch;
+  display:grid;grid-template-columns:minmax(240px,.85fr) 1.2fr;gap:40px 48px;
+  max-width:1040px;margin:0 auto;text-align:left;align-items:start;
 }
-.contact-card,.company-card{
+.contact-card{
   margin:0;text-align:left;
   border:1px solid var(--line);border-radius:var(--radius);
   background:var(--panel);padding:36px 32px;
   backdrop-filter:blur(12px);
   box-shadow:0 20px 50px -24px rgba(30,70,180,.45);
 }
+.company-card{margin:0;padding:8px 4px 0;text-align:left}
 .company-card h3{font-size:1.18rem;margin-bottom:8px}
-.company-card .company-intro{color:var(--txt-dim);font-size:.9rem;margin-bottom:26px;line-height:1.55}
-.company-list{display:flex;flex-direction:column;gap:18px}
+.company-card .company-intro{color:var(--txt-dim);font-size:.9rem;margin-bottom:28px;line-height:1.55}
+.company-list{display:flex;flex-direction:column;gap:22px}
 .company-item{display:flex;gap:14px;align-items:flex-start}
 .company-ico{
   width:42px;height:42px;flex-shrink:0;border-radius:10px;
@@ -388,7 +389,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
   .deliver-line{display:none}
   .about-grid{grid-template-columns:1fr;gap:44px}
   .ind-grid{grid-template-columns:repeat(2,1fr)}
-  .contact-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:28px;max-width:560px}
 }
 @media(max-width:760px){
   .nav{height:110px}
@@ -408,7 +409,8 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
   .ind-grid{grid-template-columns:1fr}
   .deliver-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .contact-card,.company-card{padding:28px 20px}
+  .contact-card{padding:28px 20px}
+  .company-card{padding:0}
   .chip{display:none}
   .sec{padding:80px 0}
   .hero-inner{padding-top:140px}
@@ -695,26 +697,6 @@ footer{border-top:1px solid var(--line);padding:34px 0;background:var(--bg-0)}
               <small>Phone number</small>
               <a href="tel:+97140000000">+971 4 000 0000</a>
               <p>Direct line for new conversations</p>
-            </div>
-          </div>
-          <div class="company-item">
-            <span class="company-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </span>
-            <div>
-              <small>Hours</small>
-              <span>24/7 managed operations</span>
-              <p>Monitoring, support, and go-live coverage</p>
-            </div>
-          </div>
-          <div class="company-item">
-            <span class="company-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4 5.7 4 9s-1.2 6.4-4 9c-2.8-2.6-4-5.7-4-9s1.2-6.4 4-9z"/></svg>
-            </span>
-            <div>
-              <small>Coverage</small>
-              <span>Global payment corridors</span>
-              <p>Banks, governments, fintechs, and enterprises</p>
             </div>
           </div>
         </div>
